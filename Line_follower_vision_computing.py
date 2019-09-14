@@ -6,10 +6,6 @@ import numpy as np
 import RPi.GPIO as GPIO
 import RRB3
 
-#GPIO.setmode(GPIO.BOARD)
-#GPIO.setup(40, GPIO.OUT)
-#GPIO.output(40, GPIO.HIGH)
-
 
 camera = PiCamera()
 camera.resolution = (200, 125)
@@ -21,7 +17,7 @@ x_last = 160
 y_last = 100
 
 kp = ...
-ka = ...
+kd = ...
 
 def Motor(Left_spd, Rigth_spd, Cor)
 	if (cor > 0):
@@ -95,5 +91,3 @@ for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
 	key = cv2.waitKey(1) & 0xFF	
 	if key == ord("q"):
 		break
-
-#GPIO.output(40, GPIO.LOW)
